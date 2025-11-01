@@ -1,26 +1,72 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --color-custom-yellow: 241 179 69;
+    --color-text-dark: 35 35 35;
+    --color-text-gray: 107 114 128;
+    --color-dark-text-header: 220 220 220;
+  }
+}
+@layer base{
+  button,a,input,textarea,select{
+    @apply cursor-pointer;
+  }
+
+  /* Accessibility: Focus styles */
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    @apply outline-2 outline-offset-2 outline-[#F1B345];
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom utility classes */
+.text-custom-yellow {
+  color: rgb(var(--color-custom-yellow));
 }
+
+.text-text-dark {
+  color: rgb(var(--color-text-dark));
+}
+
+.text-text-gray {
+  color: rgb(var(--color-text-gray));
+}
+
+.text-dark-text-header {
+  color: rgb(var(--color-dark-text-header));
+}
+
+/* Body background color */
+body {
+  background-color: #2f2f2f;
+}
+
+/* Scrollbar hide utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Custom carousel styles */
+@media (max-width: 768px) {
+  .carousel-item {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
