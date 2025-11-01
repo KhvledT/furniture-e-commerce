@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import menuIcon from "@/assets/icons/menu.svg";
 import searchIcon from "@/assets/icons/search.svg";
@@ -10,7 +11,11 @@ import { useRouter, usePathname } from "next/navigation";
 import { useCart } from "@/contexts/CartContext";
 import { useWishlist } from "@/contexts/WishlistContext";
 import { X, Heart } from "lucide-react";
-import DemoModal from "@/components/DemoModal";
+
+// Dynamic import for DemoModal - only loads when needed
+const DemoModal = dynamic(() => import("@/components/DemoModal"), {
+  ssr: false,
+});
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

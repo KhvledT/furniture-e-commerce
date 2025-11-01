@@ -8,8 +8,6 @@ import { useWishlist } from "@/contexts/WishlistContext";
 import { useCart } from "@/contexts/CartContext";
 import { useToast } from "@/contexts/ToastContext";
 import { getProductById } from "@/lib/products";
-import PageTransition from "@/components/animations/PageTransition";
-import ScrollReveal from "@/components/animations/ScrollReveal";
 import { motion } from "framer-motion";
 
 export default function WishlistPage() {
@@ -41,7 +39,6 @@ export default function WishlistPage() {
 
   if (wishlistItems.length === 0) {
     return (
-      <PageTransition>
         <div className="min-h-screen bg-[#2f2f2f] text-white font-sans py-12 px-4 sm:px-6 lg:px-8">
           <div className="container mx-auto max-w-7xl text-center">
             <h1 className="text-3xl font-bold mb-8">My Wishlist</h1>
@@ -60,19 +57,15 @@ export default function WishlistPage() {
             </div>
           </div>
         </div>
-      </PageTransition>
     );
   }
 
   return (
-    <PageTransition>
       <div className="min-h-screen bg-[#2f2f2f] text-white font-sans py-12 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-7xl">
-          <ScrollReveal>
             <h1 className="text-3xl font-bold mb-8">
               My Wishlist <span className="font-normal text-xl text-zinc-400">({wishlist.length} items)</span>
             </h1>
-          </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {wishlistItems.map((item, index) => (
@@ -134,6 +127,5 @@ export default function WishlistPage() {
           </div>
         </div>
       </div>
-    </PageTransition>
   );
 }

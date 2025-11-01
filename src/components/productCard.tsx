@@ -7,7 +7,6 @@ import { Star, Plus, Heart } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import { useWishlist } from "@/contexts/WishlistContext";
 import { useToast } from "@/contexts/ToastContext";
-import { motion } from "framer-motion";
 
 interface ProductCardProps {
   id: string | number;
@@ -62,15 +61,15 @@ const ProductCard: React.FC<ProductCardProps> = ({
           height={300} // Set base height
           className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105 cursor-pointer"
           onClick={() => router.push(`/products/${id}`)}
+          loading="lazy"
+          quality={75}
         />
         
         {/* Wishlist Button - Top Left */}
-        <motion.button
+        <button
           onClick={handleWishlistToggle}
           aria-label={isWishlisted(String(id)) ? "Remove from wishlist" : "Add to wishlist"}
-          className="absolute top-3 left-3 bg-black bg-opacity-50 backdrop-blur-sm rounded-full p-2 z-10"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
+          className="absolute top-3 left-3 bg-black bg-opacity-50 backdrop-blur-sm rounded-full p-2 z-10 hover:scale-110 active:scale-90 transition-transform"
         >
           <Heart 
             className={`w-5 h-5 ${
@@ -79,7 +78,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
                 : "text-white"
             }`} 
           />
-        </motion.button>
+        </button>
 
         {/* Rating Badge */}
         <div className="absolute bottom-3 right-3 bg-[#FFF8E1] text-black text-xs font-semibold px-2 py-0.5 rounded-full flex items-center gap-1">
@@ -98,15 +97,13 @@ const ProductCard: React.FC<ProductCardProps> = ({
       </div>
 
       {/* Add Button */}
-      <motion.button
+      <button
         onClick={handleAddToCart}
         aria-label={`Add ${name} to cart`}
-        className="absolute bottom-4 right-4 bg-yellow-500 text-black rounded-full w-10 h-10 flex items-center justify-center text-2xl transition-all duration-300 hover:bg-yellow-400"
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
+        className="absolute bottom-4 right-4 bg-yellow-500 text-black rounded-full w-10 h-10 flex items-center justify-center text-2xl transition-all duration-300 hover:bg-yellow-400 hover:scale-110 active:scale-90"
       >
         <Plus className="w-6 h-6 text-[#4A4A4A]" />
-      </motion.button>
+      </button>
     </div>
   );
 };

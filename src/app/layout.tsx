@@ -13,6 +13,8 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
+  preload: true,
+  fallback: ['system-ui', 'arial'],
 });
 
 const cambay = Cambay({
@@ -20,11 +22,17 @@ const cambay = Cambay({
   subsets: ["latin"],
   variable: "--font-cambay",
   display: "swap",
+  preload: true,
+  fallback: ['system-ui', 'arial'],
 });
 
 export const metadata: Metadata = {
   title: "Cozy - Furniture E-Commerce",
   description: "Crafting spaces that speak your style",
+  keywords: ["furniture", "e-commerce", "home decor", "modern furniture"],
+  authors: [{ name: "Cozy" }],
+  viewport: "width=device-width, initial-scale=1",
+  themeColor: "#2f2f2f",
 };
 
 export default function RootLayout({

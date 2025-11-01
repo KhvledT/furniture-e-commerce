@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
@@ -20,9 +21,14 @@ import { generateProductStructuredData } from "@/lib/structuredData";
 import { useCart } from "@/contexts/CartContext";
 import { useWishlist } from "@/contexts/WishlistContext";
 import { useToast } from "@/contexts/ToastContext";
-import DemoModal from "@/components/DemoModal";
-import RelatedProducts from "@/components/RelatedProducts";
-import PageTransition from "@/components/animations/PageTransition";
+
+// Dynamic imports for components that aren't immediately needed
+const DemoModal = dynamic(() => import("@/components/DemoModal"), {
+  ssr: false,
+});
+const RelatedProducts = dynamic(() => import("@/components/RelatedProducts"), {
+  ssr: false,
+});
 
 export default function ProductDetailsPage() {
   const params = useParams();
@@ -119,8 +125,7 @@ export default function ProductDetailsPage() {
   };
 
   return (
-    <PageTransition>
-      <div className="relative bg-[#2F2F2F] text-white font-sans py-10">
+    <div className="relative bg-[#2F2F2F] text-white font-sans py-10">
         {/* Structured Data for SEO */}
         <script
           type="application/ld+json"
@@ -336,6 +341,5 @@ export default function ProductDetailsPage() {
         <RelatedProducts products={relatedProducts} currentProductId={productId} />
       )}
     </div>
-    </PageTransition>
   );
 }

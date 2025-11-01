@@ -130,7 +130,8 @@ export default function SpecialPackage() {
               height={400}
               style={{ opacity: imageOpacity }}
               className="w-full h-auto object-cover transition-opacity duration-300 ease-in-out"
-              priority
+              loading="lazy"
+              quality={80}
             />
 
             <div className="mt-4 flex justify-between items-end">
@@ -177,6 +178,8 @@ export default function SpecialPackage() {
                   width={96}
                   height={96}
                   className="w-24 h-24 object-cover rounded-lg transition-transform duration-200 hover:scale-105"
+                  loading="lazy"
+                  quality={75}
                 />
                 <div className="flex-grow">
                   <h3 className="text-xl font-semibold text-white">

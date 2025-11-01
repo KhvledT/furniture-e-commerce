@@ -11,6 +11,8 @@ export default function BannerSection() {
           width={1400}
           height={400}
           className="w-full h-auto"
+          loading="lazy"
+          quality={80}
         />
       </div>
     </section>

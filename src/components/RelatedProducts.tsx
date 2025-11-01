@@ -1,9 +1,6 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { Star } from "lucide-react";
-import ScrollReveal from "@/components/animations/ScrollReveal";
 import type { Product } from "@/lib/products";
 
 interface RelatedProductsProps {
@@ -17,8 +14,7 @@ export default function RelatedProducts({ products, currentProductId }: RelatedP
   }
 
   return (
-    <ScrollReveal>
-      <section className="bg-[#2F2F2F] text-white py-16 px-4 md:px-8">
+    <section className="bg-[#2F2F2F] text-white py-16 px-4 md:px-8">
         <div className="container mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
             You May Also Like
@@ -39,6 +35,7 @@ export default function RelatedProducts({ products, currentProductId }: RelatedP
                     height={200}
                     className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
                     loading="lazy"
+                    quality={75}
                   />
                   {/* Rating Badge */}
                   <div className="absolute bottom-3 right-3 bg-[#FFF8E1] text-black text-xs font-semibold px-2 py-0.5 rounded-full flex items-center gap-1">
@@ -59,6 +56,5 @@ export default function RelatedProducts({ products, currentProductId }: RelatedP
           </div>
         </div>
       </section>
-    </ScrollReveal>
   );
 }

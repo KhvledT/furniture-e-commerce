@@ -13,7 +13,6 @@ import {
 import { useCart } from "@/contexts/CartContext";
 import { getEstimatedDeliveryDate } from "@/lib/dateUtils";
 import DemoModal from "@/components/DemoModal";
-import PageTransition from "@/components/animations/PageTransition";
 
 export default function PaymentPage() {
   const { cart, clearCart } = useCart();
@@ -81,7 +80,6 @@ export default function PaymentPage() {
 
   if (orderComplete) {
     return (
-      <PageTransition>
         <div className="min-h-screen bg-[#2f2f2f] text-white font-sans py-12 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-2xl text-center">
           <div className="bg-[#2f2f2f] border border-amber-500 p-8 rounded-lg">
@@ -98,12 +96,10 @@ export default function PaymentPage() {
           </div>
         </div>
       </div>
-      </PageTransition>
     );
   }
 
   return (
-    <PageTransition>
       <div className="min-h-screen bg-[#2f2f2f] text-white font-sans py-12 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-7xl">
         {/* Breadcrumbs */}
@@ -211,6 +207,5 @@ export default function PaymentPage() {
 
       <DemoModal isOpen={showDemoModal} onClose={() => setShowDemoModal(false)} />
     </div>
-    </PageTransition>
   );
 }

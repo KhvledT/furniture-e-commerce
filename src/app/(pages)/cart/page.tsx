@@ -7,7 +7,6 @@ import { ChevronRight, Plus, Minus, Trash2 } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import { getProductById } from "@/lib/products";
 import { getEstimatedDeliveryDate } from "@/lib/dateUtils";
-import PageTransition from "@/components/animations/PageTransition";
 
 export default function CartPage() {
   const { cart, updateQuantity, removeItem } = useCart();
@@ -55,7 +54,6 @@ export default function CartPage() {
 
   if (cartItems.length === 0) {
     return (
-      <PageTransition>
         <div className="min-h-screen bg-[#2f2f2f] text-white font-sans py-12 px-4 sm:px-6 lg:px-8">
           <div className="container mx-auto max-w-7xl">
             <h1 className="text-xl font-semibold mb-8 text-zinc-300">Cart</h1>
@@ -70,12 +68,10 @@ export default function CartPage() {
             </div>
           </div>
         </div>
-      </PageTransition>
     );
   }
 
   return (
-    <PageTransition>
       <div className="min-h-screen bg-[#2f2f2f] text-white font-sans py-12 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-7xl">
         <h1 className="text-xl font-semibold mb-8 text-zinc-300">
@@ -199,6 +195,5 @@ export default function CartPage() {
         </div>
       </div>
     </div>
-    </PageTransition>
   );
 }

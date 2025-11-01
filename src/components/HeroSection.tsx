@@ -11,7 +11,7 @@ export default function HeroSection() {
         height={600}
         className="w-full h-auto"
         priority
-        unoptimized
+        quality={85}
       />
       <button
         className="absolute top-[58%] left-[8%] bg-[#f1b345] hover:bg-[#dca02d] transition text-white text-[9.89px] md:text-[36px] font-[400] leading-[120%] px-[4%] py-2"

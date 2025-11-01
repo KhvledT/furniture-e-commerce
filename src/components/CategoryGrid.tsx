@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import category1 from "@/assets/imgs/landing/category/category1.svg";
 import category2 from "@/assets/imgs/landing/category/category2.svg";
@@ -24,7 +26,8 @@ export default function CategoryGrid() {
             width={400}
             height={600}
             className="w-full h-full object-cover rounded-lg hover:scale-102 transition-all duration-300 cursor-pointer"
-            unoptimized
+            loading="lazy"
+            quality={80}
           />
         </button>
 
@@ -35,7 +38,8 @@ export default function CategoryGrid() {
             width={400}
             height={300}
             className="w-full h-full object-cover rounded-lg hover:scale-102 transition-all duration-300 cursor-pointer"
-            unoptimized
+            loading="lazy"
+            quality={80}
           />
         </button>
 
@@ -46,7 +50,8 @@ export default function CategoryGrid() {
             width={400}
             height={600}
             className="w-full h-full object-cover rounded-lg hover:scale-102 transition-all duration-300 cursor-pointer"
-            unoptimized
+            loading="lazy"
+            quality={80}
           />
         </button>
 
@@ -57,7 +62,8 @@ export default function CategoryGrid() {
             width={400}
             height={300}
             className="w-full h-full object-cover rounded-lg hover:scale-102 transition-all duration-300 cursor-pointer"
-            unoptimized
+            loading="lazy"
+            quality={80}
           />
         </button>
 
@@ -68,7 +74,8 @@ export default function CategoryGrid() {
             width={1200}
             height={300}
             className="w-full h-full object-cover rounded-lg hover:scale-102 transition-all duration-300 cursor-pointer"
-            unoptimized
+            loading="lazy"
+            quality={80}
           />
         </button>
       </div>

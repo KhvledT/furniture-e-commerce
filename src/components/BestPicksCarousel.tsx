@@ -105,6 +105,7 @@ export default function BestPicksCarousel() {
                         height={200}
                         className="w-full h-full object-contain rounded-xl"
                         loading="lazy"
+                        quality={75}
                       />
                     </div>
 
@@ -153,6 +154,7 @@ export default function BestPicksCarousel() {
                     height={60}
                     className="w-[60px] h-[60px] md:w-[60px] md:h-[60px] object-contain rounded-lg"
                     loading="lazy"
+                    quality={70}
                   />
                 </button>
               ))}

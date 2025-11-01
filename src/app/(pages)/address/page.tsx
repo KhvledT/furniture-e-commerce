@@ -12,7 +12,6 @@ import {
   Address,
 } from "@/lib/localStorage";
 import DemoModal from "@/components/DemoModal";
-import PageTransition from "@/components/animations/PageTransition";
 
 export default function AddressPage() {
   const { cart } = useCart();
@@ -52,7 +51,6 @@ export default function AddressPage() {
   };
 
   return (
-    <PageTransition>
       <div className="min-h-screen bg-[#2f2f2f] text-white font-sans py-12 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-7xl">
         {/* Breadcrumbs */}
@@ -181,6 +179,5 @@ export default function AddressPage() {
 
       <DemoModal isOpen={showDemoModal} onClose={() => setShowDemoModal(false)} />
     </div>
-    </PageTransition>
   );
 }
